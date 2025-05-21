@@ -64,7 +64,8 @@ export default {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
+        xl: 'calc(var(--radius) + 4px)' // Added for game card
   		},
   		keyframes: {
   			'accordion-down': {
@@ -82,11 +83,21 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        'cell-enter': { // Added for tic-tac-toe cell mark
+          '0%': { transform: 'scale(0.5)', opacity: '0.5' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        'winner-pulse': { // Added for winner text animation
+           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+           '50%': { opacity: '0.7', transform: 'scale(1.05)' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'cell-enter': 'cell-enter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Added
+        'winner-text': 'winner-pulse 1.5s infinite' // Added
   		}
   	}
   },
