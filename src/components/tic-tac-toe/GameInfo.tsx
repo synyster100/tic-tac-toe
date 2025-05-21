@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { FC } from 'react';
@@ -8,9 +9,10 @@ interface GameInfoProps {
   winner: Player | null;
   isDraw: boolean;
   currentPlayer: Player;
+  gameMode?: 'pvp' | 'pvc';
 }
 
-const GameInfo: FC<GameInfoProps> = ({ winner, isDraw, currentPlayer }) => {
+const GameInfo: FC<GameInfoProps> = ({ winner, isDraw, currentPlayer, gameMode }) => {
   let statusMessage;
   let messageClass = "text-xl text-foreground";
 
@@ -21,7 +23,11 @@ const GameInfo: FC<GameInfoProps> = ({ winner, isDraw, currentPlayer }) => {
     statusMessage = "It's a Draw!";
     messageClass = "text-2xl font-semibold text-accent";
   } else {
-    statusMessage = `Player ${currentPlayer}'s Turn`;
+    if (gameMode === 'pvc' && currentPlayer === 'O') {
+      statusMessage = `Computer's Turn...`;
+    } else {
+      statusMessage = `Player ${currentPlayer}'s Turn`;
+    }
   }
 
   return (
