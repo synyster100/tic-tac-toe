@@ -1,5 +1,9 @@
-# Firebase Studio
+# Tic Tac Toe
 
-This is a NextJS starter in Firebase Studio.
+This is the tic tac toe game made by next js
 
-To get started, take a look at src/app/page.tsx.
+A simple begineer project 
+
+If you are looking this project 
+
+Either play from given link or fuck off
